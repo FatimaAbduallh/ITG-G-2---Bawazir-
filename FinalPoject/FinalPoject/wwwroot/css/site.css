@@ -1,3 +1,49 @@
+* {
+    .martel-extralight
+
+{
+    font-family: "Martel", serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.martel-light {
+    font-family: "Martel", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.martel-regular {
+    font-family: "Martel", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.martel-semibold {
+    font-family: "Martel", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.martel-bold {
+    font-family: "Martel", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.martel-extrabold {
+    font-family: "Martel", serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.martel-black {
+    font-family: "Martel", serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+}
 html {
   font-size: 14px;
 }
