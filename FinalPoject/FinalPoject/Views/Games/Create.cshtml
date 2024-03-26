@@ -18,7 +18,7 @@
             <div class="form-group">
                 <label asp-for="CategoryId" class="form-label mt-4"></label>
                 <select class="form-select" asp-for="CategoryId" asp-items="Model.Categories">
-                      <option>Select a category </option>
+                      <option value="">Select a category </option>
                       
                     </select>
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
@@ -29,7 +29,7 @@
                       <option>Select a Devices</option>
                       
                     </select>
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                <span asp-validation-for="SelectedDevices" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="form-label mt-4"></label>
@@ -38,8 +38,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="Cover" class="form-label mt-4"></label>
-                <input type="file" class="form-control" asp-for="Cover"  >
-                <small  class="form-text text-muted">Only .jpg, jpeg, .png files are allowed with max 1MB</small>
+                <input type="file" class="form-control" asp-for="Cover" 
+                data-rule-extension="@FileSetting.allowdEtentions.Replace(".",string.Empty)" 
+data-msg-extension="Not allowed extension">
+                <small  class="form-text text-muted">Only @FileSetting.allowdEtentions files are allowed with max size @FileSetting.maxFileSizeInMB </small>
                 <span asp-validation-for="Cover" class="text-danger d-block"></span>
             </div>
             <button type="submit" class="btn btn-light text-black mt-4" >Save</button>
@@ -47,3 +49,4 @@
         <div class="col-md-6"></div>
     </div>
 </form>
+@section Scripts{<partial name=_ValidationScriptsPartial></partial>}

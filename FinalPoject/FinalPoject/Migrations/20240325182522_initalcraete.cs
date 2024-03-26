@@ -4,7 +4,7 @@
 
 namespace GameZon.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initalcraete : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameZon.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240317001723_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240325182522_initalcraete")]
+    partial class initalcraete
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
