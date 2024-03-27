@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameZon.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240325182522_initalcraete")]
+    [Migration("20240326171859_initalcraete")]
     partial class initalcraete
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -160,16 +160,13 @@ namespace GameZon.Migrations
                     b.Property<int>("IdGame")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdDevice")
-                        .HasColumnType("int");
-
                     b.Property<int>("DeviceId")
                         .HasColumnType("int");
 
                     b.Property<int>("GameId")
                         .HasColumnType("int");
 
-                    b.HasKey("IdGame", "IdDevice");
+                    b.HasKey("IdGame", "DeviceId");
 
                     b.HasIndex("DeviceId");
 

@@ -62,13 +62,12 @@ namespace GameZon.Migrations
                 columns: table => new
                 {
                     IdGame = table.Column<int>(type: "int", nullable: false),
-                    IdDevice = table.Column<int>(type: "int", nullable: false),
-                    GameId = table.Column<int>(type: "int", nullable: false),
-                    DeviceId = table.Column<int>(type: "int", nullable: false)
+                    DeviceId = table.Column<int>(type: "int", nullable: false),
+                    GameId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GameDevices", x => new { x.IdGame, x.IdDevice });
+                    table.PrimaryKey("PK_GameDevices", x => new { x.IdGame, x.DeviceId });
                     table.ForeignKey(
                         name: "FK_GameDevices_Devices_DeviceId",
                         column: x => x.DeviceId,
