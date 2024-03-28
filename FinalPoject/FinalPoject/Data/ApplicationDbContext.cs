@@ -33,7 +33,7 @@
 
                 });
             modelBuilder.Entity<GameDevice>()
-                .HasKey(e => new { e.IdGame, e.DeviceId});
+                .HasKey(e => new { e.GameId, e.DeviceId});
             base.OnModelCreating(modelBuilder);
             
         }
