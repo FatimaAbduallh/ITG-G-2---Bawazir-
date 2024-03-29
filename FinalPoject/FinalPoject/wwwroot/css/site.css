@@ -1,12 +1,14 @@
 * {
-    .martel-extralight
-
+   /*  .martel-extralight,*/
+    font-family: 'Chakra Petch', sans-serif;
+}
+/*
 {
     font-family: "Martel", serif;
     font-weight: 200;
     font-style: normal;
 }
-
+*/
 .martel-light {
     font-family: "Martel", serif;
     font-weight: 300;
@@ -43,7 +45,6 @@
     font-style: normal;
 }
 
-}
 html {
   font-size: 14px;
 }
@@ -118,3 +119,20 @@ body {
     width: 100% !important;
 }
 /* End override select2 */
+
+/* Start Override SweetAlert2 */
+.swal2-title, .swal2-html-container {
+    color: #fff !important;
+}
+
+div:where(.swal2-container) div:where(.swal2-popup) {
+    background: #1a0933;
+}
+/* End Override SweetAlert2 */
+
+/* Start Custom Styles */
+.cover-preview {
+    max-height: 500px;
+    border-radius: 8px;
+}
+/* End Custom Styles */

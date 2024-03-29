@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel:wght@200;300;400;600;700;800;900&family=Shippori+Mincho+B1&display=swap" >
+    <link rel="stylesheet" href="~/lib/select2/css/select2.min.css" />
+    <link rel="stylesheet" href="~/lib/sweetalert2/sweetalert2.min.css" />
     
     <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" />
      <link rel="stylesheet" href="~/lib/select2/css/select2.min.css" />
@@ -43,16 +45,17 @@
         </main>
     </div>
     
-    <!--
+ 
 <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2024 - FinalPoject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>-->
+    </footer>
    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/select2/js/select2.min.js"></script>
+    <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     
     @await RenderSectionAsync("Scripts", required: false)
