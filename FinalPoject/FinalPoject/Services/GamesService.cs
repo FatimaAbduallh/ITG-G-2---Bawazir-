@@ -36,21 +36,19 @@ namespace GameZon.Services
         public async Task Create(CreateGameFormViewModel model)
         {
             var coverName = await SaveCover(model.Cover);
-          
+
             Game game = new Game()
             {
                 Name = model.Name,
                 Description = model.Description,
                 CategoryId = model.CategoryId,
-                Cover = coverName
-                ,Devices = model.SelectedDevices.Select(d => new GameDevice { DeviceId = d }).ToList()
-
+                Cover = coverName,
+                Devices = model.SelectedDevices.Select(d => new GameDevice { DeviceId = d }).ToList(),
             };
+         //  game.Devices = model.SelectedDevices.Select(d => new GameDevice { GameId = game.Id, DeviceId = d }).ToList();
             _context.Add(game);
             _context.SaveChanges(); 
-
         }
-
         public async Task<Game?>Update(EditGameFormViewModel model)
         {
             var game = _context.Games.Include(g => g.Devices).SingleOrDefault(g=>g.Id == model.Id);
@@ -62,8 +60,9 @@ namespace GameZon.Services
             var oldCover=game.Cover ;
             game.Name = model.Name; 
             game.Description = model.Description;   
-            game.CategoryId = model.CategoryId; 
-            game.Devices=model.SelectedDevices.Select(d => new GameDevice {DeviceId = d}).ToList();
+            game.CategoryId = model.CategoryId;
+            // game.Devices=model.SelectedDevices.Select(d => new GameDevice {DeviceId = d}).ToList();
+            game.Devices = model.SelectedDevices.Select(d => new GameDevice { GameId = game.Id, DeviceId = d }).ToList();
 
             if (hasNewCover)
             {
@@ -98,7 +97,6 @@ namespace GameZon.Services
 
             return coverName;
         }
-
         public bool Delete(int id)
         {
             var isDeleted = false;

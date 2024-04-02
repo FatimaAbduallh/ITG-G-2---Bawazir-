@@ -155,20 +155,15 @@ namespace GameZon.Migrations
 
             modelBuilder.Entity("GameZon.Models.GameDevice", b =>
                 {
-                    b.Property<int>("IdGame")
+                    b.Property<int>("GameId")
                         .HasColumnType("int");
 
                     b.Property<int>("DeviceId")
                         .HasColumnType("int");
 
-                    b.Property<int>("GameId")
-                        .HasColumnType("int");
-
-                    b.HasKey("IdGame", "DeviceId");
+                    b.HasKey("GameId", "DeviceId");
 
                     b.HasIndex("DeviceId");
-
-                    b.HasIndex("GameId");
 
                     b.ToTable("GameDevices");
                 });

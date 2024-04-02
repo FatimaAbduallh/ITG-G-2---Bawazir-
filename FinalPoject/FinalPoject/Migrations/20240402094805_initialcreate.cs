@@ -4,7 +4,7 @@
 
 namespace GameZon.Migrations
 {
-    public partial class initalcraete : Migration
+    public partial class initialcreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,13 +61,12 @@ namespace GameZon.Migrations
                 name: "GameDevices",
                 columns: table => new
                 {
-                    IdGame = table.Column<int>(type: "int", nullable: false),
-                    DeviceId = table.Column<int>(type: "int", nullable: false),
-                    GameId = table.Column<int>(type: "int", nullable: false)
+                    GameId = table.Column<int>(type: "int", nullable: false),
+                    DeviceId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GameDevices", x => new { x.IdGame, x.DeviceId });
+                    table.PrimaryKey("PK_GameDevices", x => new { x.GameId, x.DeviceId });
                     table.ForeignKey(
                         name: "FK_GameDevices_Devices_DeviceId",
                         column: x => x.DeviceId,
@@ -110,11 +109,6 @@ namespace GameZon.Migrations
                 name: "IX_GameDevices_DeviceId",
                 table: "GameDevices",
                 column: "DeviceId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_GameDevices_GameId",
-                table: "GameDevices",
-                column: "GameId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Games_CategoryId",
