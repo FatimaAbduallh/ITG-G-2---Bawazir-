@@ -1,73 +1,30 @@
 * {
-   /*  .martel-extralight,*/
     font-family: 'Chakra Petch', sans-serif;
-}
-/*
-{
-    font-family: "Martel", serif;
-    font-weight: 200;
-    font-style: normal;
-}
-*/
-.martel-light {
-    font-family: "Martel", serif;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.martel-regular {
-    font-family: "Martel", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.martel-semibold {
-    font-family: "Martel", serif;
-    font-weight: 600;
-    font-style: normal;
-}
-
-.martel-bold {
-    font-family: "Martel", serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.martel-extrabold {
-    font-family: "Martel", serif;
-    font-weight: 800;
-    font-style: normal;
-}
-
-.martel-black {
-    font-family: "Martel", serif;
-    font-weight: 900;
-    font-style: normal;
 }
 
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
-/* Start Custom Styles */
-.cover-preview {
-    max-height: 500px;
-    border-radius: 8px;
-}
+
 /* Start override select2 */
 .select2-container--default .select2-selection--single {
     background-color: #30115e;
