@@ -2,19 +2,44 @@
 @{
     ViewData["Title"] =Model.Name;
 }
+@* <head>
+    <style>
+        .message-box {
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+    <script>
+        function startDownload() {
+            // Display the message
+            var messageBox = document.getElementById("message");
+            messageBox.innerText = "Starting game download...";
+
+            // Simulate the download process
+            setTimeout(function () {
+                messageBox.innerText = "Game download complete!";
+            }, 3000); // Change the timeout value as needed
+        }
+    </script>
+</head>
+<body>
 <div class="card border-success rounded-4 mt-5 overflow-hidden">
     <div class="card-body p-0">
         <div class="row">
             <div class="vol-md-8 px-5 py-4 d-flx flex-column  justify-content-between">
                 <div>
                     <h1 class="text-success fw-bolder">@Model.Name</h1>
-                    <span class="badge bg-info fs-5 mb-4"> @Model.Category? Name </span>
+                    <span class="badge bg-info fs-5 mb-4"> @Model.Category </span>
                     <p class="fs-5"> @Model.Description</p>
                 </div>
                 <div>
                      @foreach(var gameDevice in Model. Devices)
                      {
                          <i class="@gameDevice.Device.Icon me-2 fs-1 text-secondary"></i>
+                        <div class="message-box">
+                            <p id="message"></p>
+                            <button onclick="startDownload()">Download Game</button>
+                        </div>
                      }
                 </div>
             </div>
@@ -24,3 +49,91 @@
         </div>
     </div>
 </div>
+</body> *@
+
+
+
+<html>
+
+<head>
+    <style>
+        .message-box {
+            text-align: center;
+            margin: 50px;
+        }
+
+        .game-image {
+            width: 200px; /* Adjust the width as desired */
+            height: auto; /* Maintain the aspect ratio */
+        }
+
+        .game-details {
+            margin-bottom: 20px;
+        }
+
+        .game-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0d6efd;
+            margin-bottom: 10px;
+        }
+
+        .game-category {
+            font-size: 18px;
+            background-color: #0d6efd;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .game-description {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        function startDownload() {
+            // Display the message
+            var messageBox = event.target.parentElement.getElementsByClassName("message")[0];
+            messageBox.innerText = "Starting game download...";
+
+            // Simulate the download process
+            setTimeout(function () {
+                messageBox.innerText = "Game download complete!";
+            }, 3000); // Change the timeout value as needed
+        }
+    </script>
+</head>
+
+<body>
+    <div class="card border-success rounded-4 mt-5 overflow-hidden">
+        <div class="card-body p-0">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="@($"{FileSetting.ImagesPath}/{Model.Cover}")" alt="@Model.Name" class="w-100 game-image" />
+                    <div class="message-box">
+                        <p class="message"></p>
+                        <button class="btn btn-primary" onclick="startDownload()">Download Game</button>
+                    </div>
+                </div>
+                <div class="col-md-8 px-5 py-4">
+                    <div class="game-details">
+                        <h1 class="game-title">@Model.Name</h1>
+                        <span class="game-category">@Model.Category.Name</span>
+                    </div>
+                    <p class="game-description">@Model.Description</p>
+                    <div>
+                        @foreach (var gameDevice in Model.Devices)
+                        {
+                            <i class="@gameDevice.Device.Icon me-2 fs-1 text-secondary"></i>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

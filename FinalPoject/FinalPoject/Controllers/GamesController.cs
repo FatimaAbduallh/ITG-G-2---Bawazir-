@@ -1,7 +1,11 @@
 ﻿
 
+using Microsoft.AspNetCore.Authorization;
+
 namespace GameZon.Controllers
 {
+   
+
     public class GamesController : Controller
     {
       private readonly ApplicationDbContext _context;
@@ -22,6 +26,7 @@ namespace GameZon.Controllers
             return View(games);
         }
 
+        [Authorize(Roles = $"{clsRoles.roleAdmin},{clsRoles.roleUser}")]
         public IActionResult Details(int id)
         {
             var game = _gamesService.GetById(id);
@@ -44,6 +49,7 @@ namespace GameZon.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = clsRoles.roleAdmin)]
         public async Task <IActionResult> Create(CreateGameFormViewModel model)
         {
             if (!ModelState.IsValid)
@@ -57,6 +63,7 @@ namespace GameZon.Controllers
             await _gamesService.Create(model); 
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles = clsRoles.roleAdmin)]
         public IActionResult Edit(int id)
         {
             var game = _gamesService.GetById(id);
@@ -78,6 +85,7 @@ namespace GameZon.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = clsRoles.roleAdmin)]
         public async Task <IActionResult> Edit (EditGameFormViewModel model)
         {
             if (!ModelState.IsValid)
@@ -97,6 +105,7 @@ namespace GameZon.Controllers
 
         }
         [HttpDelete]
+        [Authorize(Roles = clsRoles.roleAdmin)]
         public IActionResult Delete(int id)
         {            
             var isDeleted= _gamesService.Delete(id);    
