@@ -4,6 +4,7 @@ using GameZon.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameZon.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240408124816_add roles")]
+    partial class addroles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -198,15 +200,15 @@ namespace GameZon.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "70d2cba4-b509-49a6-8c34-e1f0df2b96ae",
-                            ConcurrencyStamp = "53c9f198-f59f-4bbc-9826-ff7ca12702a2",
+                            Id = "c523edcc-7e13-4ff3-8133-b7283a0b8f4d",
+                            ConcurrencyStamp = "fc588312-55b1-4c47-998e-2f2f21a6a483",
                             Name = "Admin",
                             NormalizedName = "admin"
                         },
                         new
                         {
-                            Id = "adafa587-0720-4f45-9e3a-b46bc6c204ca",
-                            ConcurrencyStamp = "f56d9fcc-0ec0-43dc-bd90-0ada994c2192",
+                            Id = "9adf4698-f040-4b4e-b43a-4fd5839902fe",
+                            ConcurrencyStamp = "277eb254-346d-482d-a226-50c47409b879",
                             Name = "User",
                             NormalizedName = "user"
                         });
