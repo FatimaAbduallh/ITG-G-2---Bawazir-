@@ -1,13 +1,48 @@
-﻿namespace GameZon.Data
-{
-    public class ApplicationDbContext: DbContext
-    {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
+namespace GameZon.Data
+{
+    public class ApplicationDbContext: IdentityDbContext
+    {
+        public ApplicationDbContext(DbContextOptions options):base(options)
+        {
+            
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<IdentityUser>().Ignore(c=>c.EmailConfirmed);
+            modelBuilder.Entity<IdentityUser>().Ignore(c=>c.PhoneNumberConfirmed);
+            var AdminId = Guid.NewGuid().ToString();
+            var UserId = Guid.NewGuid().ToString();
+            modelBuilder.Entity<IdentityRole>().HasData(
+                
+
+                new IdentityRole()
+                {
+                    Id = AdminId,
+                    Name = "Admin",
+                    NormalizedName = "admin",
+                    ConcurrencyStamp = Guid.NewGuid().ToString(),
+
+                },
+                  new IdentityRole()
+                  {
+                      Id = UserId,
+                      Name = "User",
+                      NormalizedName = "user",
+                      ConcurrencyStamp = Guid.NewGuid().ToString(),
+
+                  }
+
+
+
+
+                );
+              
+            
+
             modelBuilder.Entity<Category>()
                 .HasData(new Category[]
                 {
@@ -33,7 +68,7 @@
 
                 });
             modelBuilder.Entity<GameDevice>()
-                .HasKey(e => new { e.IdGame, e.IdDevice });
+                .HasKey(e => new { e.GameId, e.DeviceId});
             base.OnModelCreating(modelBuilder);
             
         }

@@ -2,10 +2,10 @@
 {
     public class GameDevice
     {
-        public int IdGame { get; set; }
+        public int GameId { get; set; }
         public Game Game { get; set; } = default!;
 
-        public int IdDevice { get; set; }
+        public int DeviceId { get; set; }
         public Device Device { get; set; } = default!;
 
 
