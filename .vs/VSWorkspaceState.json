@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FinalPoject",
+    "\\FinalPoject\\FinalPoject",
+    "\\FinalPoject\\FinalPoject\\Views",
+    "\\FinalPoject\\FinalPoject\\Views\\Home",
+    "\\FinalPoject\\FinalPoject\\Views\\Shared"
   ],
-  "SelectedNode": "\\FinalPoject.sln",
   "PreviewInSolutionExplorer": false
 }

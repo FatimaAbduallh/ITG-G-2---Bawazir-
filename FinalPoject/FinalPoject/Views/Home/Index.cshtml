@@ -5,20 +5,20 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="container">
-    <div class="row">
+<div class="container"  style="margin-bottom:8rem">
+    <div class="row" >
+        <br>
+       <div class="col-lg-6" style="margin-top:8rem;">
+    <br />
+    <h1 style="margin-bottom:1rem;">GameZon  </h1>
+    <p style="text-align: justify;">
+       Welcome to our exciting game website! Get ready for an immersive<br /> gaming experience like no other.
+        Whether you're a casual gamer or <br />a hardcore enthusiast, we have something for everyone.
+     Welcome to our exciting game website! Get ready for an immersive<br /> gaming experience like no other.
+        Whether you're a casual gamer or <br />a hardcore enthusiast, we have something for everyone. <</p>
+</div>
         <div class="col-lg-6">
-            <h1>hi</h1>
-            <p style="text-align:justify">
-                Are you a passionate gamer looking for thrilling adventures, intense competition, and endless entertainment? Look no further! Our Games Website is your ultimate destination for all things gaming.
-
-                At our website, we strive to bring you the latest and greatest games from various genres, platforms, and developers. Whether you're into action-packed shooters, immersive role-playing games, mind-bending puzzles, or captivating story-driven narratives, we have something for every type of gamer.
-
-
-            </p>
-        </div>
-        <div class="col-lg-6">
-            <img src="\assets\images\Online games addiction-pana.png" style="width: 70%" class="img-fluid">
+            <img src="\assets\images\Online games addiction-pana.png" style="width: 90%;" class="img-fluid ">
         </div>
     </div>
 </div>
@@ -35,8 +35,8 @@ else
     <div class="row mt-5">
         @foreach(var game in Model)
         {
-            <div class="col-lg-4 col-md-6">
-                <a class="card border-success mb-3 text-decoration-none rounded-3 overflow-hidden" asp-controller="Games" asp-action="Details" asp-route-id="@game.Id">
+            <div class="col-lg-4 col-md-6  ">
+                <a class="card border-success mb-5 mx=5 text-decoration-none rounded-3 overflow-hidden custom-div " asp-controller="Games" asp-action="Details" asp-route-id="@game.Id">
                     <div class="card-body" style="background-image: url(@($"{FileSetting.ImagesPath}/{game.Cover}")); background-size: cover; background-position: center; height: 400px;">
                        <div class="d-flex align-items-end h-100">
                             <span class="badge bg-secondary rounded-0 fs-5">@game.Category?.Name</span>
@@ -54,5 +54,68 @@ else
                </a>
             </div>
         }
+
     </div>   
+     <div class="card">
+  <div class="card-body">
+    <h4 class="card-title" style="text-align:center">Game Website</h4>
+    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center">Enjoy It</h6>
+    <p class="card-text" style="text-align:center"> Are you a passionate gamer looking for thrilling adventures,
+        intense competition, and endless entertainment?
+        Look no further! Our Games Website is your ultimate destination for all things gaming.
+      At our website, we strive to bring you the latest and greatest games from various genres,
+      platforms, and developers. Whether you're into action-packed shooters, immersive role-playing games, 
+      mind-bending puzzles, or captivating story-driven narratives, we have something for every type of gamer.
+    </p>
+
+    
+  </div>
+</div>
+<br />
+<style>
+     .custom-div {
+        border: 1px solid #ced4da; /* لون الحدود الافتراضي */
+        transition: transform 0.3s, border-color 0.3s; /* تحوّل الانتقال للحجم والحدود */
+    }
+
+    .custom-div:hover {
+        border-color: #007bff; /* لون الحدود عند تحوّل الماوس */
+        transform: scale(1.1); /* تكبير العنصر عند تحوّل الماوس */
+    }
+</style>
+<div class="container">
+<div class="row mt-5">
+    
+<div class="card border-light mx-3 custom-div" style="max-width: 20rem;" >
+  <div class="card-header">Unlock Endless Adventures</div>
+  <div class="card-body">
+    <h4 class="card-title">Download</h4>
+    <p class="card-text"> Play the Hottest Games Today!</p>
+  </div>
+</div>
+
+<div class="card border-info mx-3 custom-div" style="max-width: 20rem;">
+  <div class="card-header">World of Thrilling Entertainment</div>
+  <div class="card-body">
+    <h4 class="card-title">Discover </h4>
+    <p class="card-text"> Start Downloading Epic Games Now!</p>
+  </div>
+</div>
+<div class="card border-dark mx-3 custom-div" style="max-width: 20rem;">
+  <div class="card-header"> Power of Gaming</div>
+  <div class="card-body">
+    <h4 class="card-title">Unleash </h4>
+    <p class="card-text">Download the Latest Blockbusters and Indie Gemes!.</p>
+  </div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row mt-5">
+    
+
+</div>
+</div>
+
+
 }
